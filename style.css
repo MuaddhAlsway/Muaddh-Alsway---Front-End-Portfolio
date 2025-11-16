@@ -535,6 +535,7 @@ body {
   background-color: rgba(255, 255, 255, 0.05);
   border-radius: 10px;
   overflow: hidden;
+  
   box-shadow: 0 6px 20px rgba(0,0,0,0.1);
   transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
   
@@ -564,6 +565,7 @@ body {
   font-size: 0.95rem;
   margin: 0 15px 15px;
   color: #777;
+  flex: 1;     
 }
 
 .project-icons {
@@ -579,13 +581,13 @@ body {
 .project-links {
   display: flex;
   justify-content: flex-end;
-  
   margin: 0 15px 15px;
+  margin-top: auto;           /* push links to the bottom */
 }
 
 .project-links a {
   margin-left: 15px;
-  color: #111;
+  color: #565656;
   font-size: 1.2rem;
   transition: color 0.3s;
 }
