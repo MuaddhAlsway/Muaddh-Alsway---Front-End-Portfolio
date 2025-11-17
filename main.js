@@ -167,8 +167,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const scrollArrow = document.getElementById("scrollArrow");
     const scrollDownArrow = document.getElementById("scrollDownArrow");
     const downloadBtn = document.getElementById("downloadCVBtn");
-    const iconWrapper = document.querySelector('.iconWrapper1');
-    const header = document.querySelector(".HeaderContainer");
     const footer = document.querySelector("footer");
 
     window.addEventListener("scroll", () => {
@@ -202,7 +200,28 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         // Icon wrapper fade
-        if (iconWrapper) iconWrapper.style.opacity = scrollTop > 2 ? "0" : "1";
+       const arrowWrapper = document.querySelector(".iconWrapper1");
+const header = document.querySelector(".HeaderContainer");
+
+if (arrowWrapper && header) {
+    // Hide arrow initially
+    arrowWrapper.style.display = "none";
+    arrowWrapper.style.opacity = "0";
+
+    // Show arrow only if in header area
+    window.addEventListener("scroll", () => {
+        const scrollTop = window.scrollY;
+        const headerBottom = header.offsetTop + header.offsetHeight;
+
+        if (scrollTop < headerBottom) {
+            arrowWrapper.style.display = "flex"; // show
+            arrowWrapper.style.opacity = "1";
+        } else {
+            arrowWrapper.style.display = "none"; // hide when scroll out of header
+            arrowWrapper.style.opacity = "0";
+        }
+    });
+}
 
 
         // ==============================
