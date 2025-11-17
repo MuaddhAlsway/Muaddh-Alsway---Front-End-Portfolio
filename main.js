@@ -198,6 +198,19 @@ document.addEventListener("DOMContentLoaded", () => {
                 downloadBtn.classList.remove("show");
             }
         }
+// ==============================
+// SCROLL TO TOP BUTTON CLICK
+// ==============================
+const scrollArrowBtn = document.getElementById("scrollArrow");
+
+if (scrollArrowBtn) {
+    scrollArrowBtn.addEventListener("click", () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    });
+}
 
         // Icon wrapper fade
        const arrowWrapper = document.querySelector(".iconWrapper1");
