@@ -1226,8 +1226,13 @@ color: #e8ab61;
         width: 170px;
         height: 170px;
     }
-      .titleIntroduction .intro h3 { font-size: 20px; }
-    .titleIntroduction .highligh h2 { font-size: 25px; }
+    #typing-text{
+      font-size: 20px;
+   
+    }
+      #typing-text { font-size: 26px; }
+    .titleIntroduction .intro h3 { font-size: 32px; }
+    .titleIntroduction .highligh h2 { font-size: 26px; }
     .project-filters {
   display: flex;
   justify-content: center;
@@ -1254,8 +1259,9 @@ color: #e8ab61;
 @media (max-width: 414px) {
     .HeaderContainer { padding: 50px 15px; }
     .img img { width: 140px; height: 140px; }
-   .titleIntroduction .intro h3 { font-size: 20px; }
-    .titleIntroduction .highligh h2 { font-size: 25px; }
+   #typing-text { font-size: 26px; }
+    .titleIntroduction .intro h3 { font-size: 32px; }
+    .titleIntroduction .highligh h2 { font-size: 26px; }
     .project-cards { grid-template-columns: 1fr; }
     .experience-item { padding-left: 20px; }
     .download-cv-btn { padding: 10px 16px; font-size: 14px; bottom: 20px; right: 15px; }
@@ -1290,8 +1296,8 @@ color: #e8ab61;
         border-width: 6px;
     }
 
-    /* Title / Introduction */
-   .titleIntroduction .intro h3 { font-size: 60px; }
+     #typing-text { font-size: 50px; }
+    .titleIntroduction .intro h3 { font-size: 60px; }
     .titleIntroduction .highligh h2 { font-size: 50px; }
 
     /* Projects Section */
@@ -1396,9 +1402,9 @@ color: #e8ab61;
         border-radius: 50%;
     }
 
-    /* Title / Introduction */
- .titleIntroduction .intro h3 { font-size: 48px; }
-    .titleIntroduction .highligh h2 { font-size: 42px; }
+    #typing-text { font-size: 45px; }
+    .titleIntroduction .intro h3 { font-size: 55px; }
+    .titleIntroduction .highligh h2 { font-size: 45px; }
 
     /* Project Cards Grid */
     .project-cards {
@@ -1441,10 +1447,9 @@ color: #e8ab61;
       object-fit: cover;
       border-radius: 50%;
   }
-
-  /* Title text */
-  .titleIntroduction .intro h3 { font-size: 36px; }
-    .titleIntroduction .highligh h2 { font-size: 32px; }
+ #typing-text { font-size: 35px; }
+    .titleIntroduction .intro h3 { font-size: 45px; }
+    .titleIntroduction .highligh h2 { font-size: 35px; }
   /* Project cards grid */
   .project-cards {
       display: grid;
@@ -1545,9 +1550,9 @@ color: #e8ab61;
       display: flex;
       flex-direction: column;
       align-items: center;
-  }
-    .titleIntroduction .intro h3 { font-size: 34px; }
-    .titleIntroduction .highligh h2 { font-size: 30px; }
+  } #typing-text { font-size: 33px; }
+    .titleIntroduction .intro h3 { font-size: 42px; }
+    .titleIntroduction .highligh h2 { font-size: 33px; }
 /* Education Timeline */
     .timeline::before {
         left: 20px; /* move vertical line a bit right */
@@ -1683,8 +1688,9 @@ color: #e8ab61;
 }
 /* ===== DESKTOP / LAPTOP (821px to 1024px) ===== */
 @media (max-width: 1024px) {
-    .titleIntroduction .intro h3 { font-size: 42px; }
-    .titleIntroduction .highligh h2 { font-size: 38px; }
+    #typing-text { font-size: 40px; }
+    .titleIntroduction .intro h3 { font-size: 50px; }
+    .titleIntroduction .highligh h2 { font-size: 40px; }
 }
 /* ===== FULL DESKTOP / ULTRA WIDE (1441px and above) ===== */
 
@@ -1989,9 +1995,9 @@ color: #d79e50;
       display: flex;
       flex-direction: column;
       align-items: center;
-  }
-  .titleIntroduction .intro h3 { font-size: 28px; }
-    .titleIntroduction .highligh h2 { font-size: 24px; }
+  } #typing-text { font-size: 28px; }
+    .titleIntroduction .intro h3 { font-size: 36px; }
+    .titleIntroduction .highligh h2 { font-size: 28px; }
   /* Profile image */
   .img img {
       width: 160px;
@@ -2202,8 +2208,9 @@ color: #d79e50;
         left: 12px; /* slightly off the edge */
         width: 3px;
     }
-  .titleIntroduction .intro h3 { font-size: 22px; }
-    .titleIntroduction .highligh h2 { font-size: 20px; }
+   #typing-text { font-size: 26px; }
+    .titleIntroduction .intro h3 { font-size: 32px; }
+    .titleIntroduction .highligh h2 { font-size: 26px; }
     /* Timeline items full width */
     .experience-item {
         width: 100% !important;
@@ -2312,8 +2319,9 @@ color: #d79e50;
       flex-direction: column;
       align-items: center;
   }
-  .titleIntroduction .intro h3 { font-size: 21px; }
-    .titleIntroduction .highligh h2 { font-size: 19px; }
+    #typing-text { font-size: 25px; }
+    .titleIntroduction .intro h3 { font-size: 31px; }
+    .titleIntroduction .highligh h2 { font-size: 25px; }
   /* Profile image */
   .img img {
       width: 135px;
@@ -2374,8 +2382,9 @@ color: #d79e50;
       flex-direction: column;
       align-items: center;
   }
-    .titleIntroduction .intro h3 { font-size: 18px; }
-    .titleIntroduction .highligh h2 { font-size: 16px; }
+     #typing-text { font-size: 22px; }
+    .titleIntroduction .intro h3 { font-size: 28px; }
+    .titleIntroduction .highligh h2 { font-size: 22px; }
   /* Profile image */
   .img img {
       width: 120px;
