@@ -60,25 +60,57 @@ body {
     object-fit: contain; /* يحافظ على نسب الصورة */
 }
 
-.titleIntroduction h3 {
+.titleIntroduction .intro h3 {
     font-size: 22px;
     
     letter-spacing: 2px;
     text-align: center;
     transition: color 0.5s ease;
 }
-.titleIntroduction h2 {
+.titleIntroduction .highligh h2 {
     font-family: 'BigBold', 'Inter', sans-serif;
     font-size: 55px;
-    font-weight: 700;
+      animation: shadowMove 2.2s ease-in-out infinite;
+
+        font-weight: 800;
+
    color: #2a2a2a;
     font-weight: 900;
     margin-top: 8px;
     text-align: center;
     transition: color 0.5s ease;
     font-weight: 700;
+         text-shadow:
+        1px 1px 1px #d79e50,
+        2px 2px 1px #e8ab61,
+        3px 3px 1px #565656,
+        4px 4px 1px #d79e50,
+      
+       
+      
 }
+@keyframes shadowMove {
+  0% {
+    text-shadow:
+      0px 1px 0 #d79e50,
+      0px 2px 0 #e8ab61,
+      0px 3px 0 #565656;
+  }
 
+  50% {
+    text-shadow:
+      0px 3px 0 #d79e50,
+      0px 6px 0 #e8ab61,
+      0px 9px 0 #565656;
+  }
+
+  100% {
+    text-shadow:
+      0px 1px 0 #d79e50,
+      0px 2px 0 #e8ab61,
+      0px 3px 0 #565656;
+  }
+}
 /* RightSidebar */
 .rightSidebar {
     display: flex;
@@ -1675,7 +1707,7 @@ color: #e8ab61;
 .download-cv-btn {
     position: fixed;
     right: 20px;
-    bottom: 50px;
+    bottom: 10px;
     background-color: #e8ab61;
     color: #0a0a0a;
     font-weight: 700;
@@ -1908,6 +1940,8 @@ color: #d79e50;
 }
 
 /* Scroll Down Arrow */
+/* Scroll Down Arrow */
+/* Scroll Down Arrow */
 #scrollDownArrow {
   position: fixed;
   bottom: 30px;
@@ -1922,7 +1956,13 @@ color: #d79e50;
   box-shadow: 0 4px 6px rgba(0,0,0,0.3);
   opacity: 0.7;
   transition: opacity 0.3s;
+  display: none; /* hidden initially */
 }
+
+#scrollDownArrow:hover {
+  opacity: 1;
+}
+
 
 #scrollDownArrow:hover {
   opacity: 1;
@@ -1930,7 +1970,7 @@ color: #d79e50;
 /* WhatsApp floating icon */
 #whatsappIcon {
     position: fixed;
-    bottom: 30px;       /* distance from bottom */
+    bottom: 60px;       /* distance from bottom */
     right: 30px;        /* distance from right */
     background-color: #d79e50; /* WhatsApp green */
     color: white;
@@ -2388,9 +2428,10 @@ color: #d79e50;
     position: fixed;
     bottom: 70px; /* slightly higher from bottom */
     right: 30px;  /* distance from right */
-   padding: 15px 20px;/* equal height */
-    background-color: #d79e50; /* Gmail red */
-    color: #111;
+  width: 50px;
+    height: 50px;/* equal height */
+  
+    color: #d79e50;
     font-size: 24px;
     display: flex;
     justify-content: center;

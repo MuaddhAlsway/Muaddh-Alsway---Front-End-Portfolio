@@ -80,32 +80,139 @@ document.addEventListener("DOMContentLoaded", () => {
   // ------------------------------
   // GSAP (only if available)
   // ------------------------------
-  try {
-    if (window.gsap && window.ScrollTrigger) {
-      gsap.registerPlugin(ScrollTrigger);
+try {
+  if (window.gsap && window.ScrollTrigger) {
+    gsap.registerPlugin(ScrollTrigger);
 
-      if ($(".img img")) gsap.from(".img img", { opacity: 0, scale: 0.6, duration: 1, delay: 0.2, ease: "back.out(1.7)" });
-      if ($(".titleIntroduction h3")) gsap.from(".titleIntroduction h3", { opacity: 0, y: -20, duration: 1, delay: 0.4 });
-      if ($(".titleIntroduction h2")) gsap.from(".titleIntroduction h2", { opacity: 0, y: -20, duration: 1, delay: 0.6 });
-      if ($$(".iconWrapper i").length) gsap.from(".iconWrapper i", { opacity: 0, y: -20, scale: 0.5, duration: 0.7, stagger: 0.1, delay: 0.8 });
+    // Header image
+    if ($(".img img")) {
+      gsap.from(".img img", {
+        opacity: 0,
+        scale: 0.6,
+        duration: 1,
+        delay: 0.2,
+        ease: "back.out(1.7)",
+        scrollTrigger: {
+          trigger: ".img img",
+          start: "top 80%",
+          toggleActions: "play reverse play reverse"
+        }
+      });
+    }
 
+    // Header text h3
+    if ($(".titleIntroduction h3")) {
+      gsap.from(".titleIntroduction h3", {
+        opacity: 0,
+        y: -20,
+        duration: 1,
+        delay: 0.4,
+        scrollTrigger: {
+          trigger: ".titleIntroduction h3",
+          start: "top 80%",
+          toggleActions: "play reverse play reverse"
+        }
+      });
+    }
+
+    // Header text h2
+    if ($(".titleIntroduction h2")) {
+      gsap.from(".titleIntroduction h2", {
+        opacity: 0,
+        y: -20,
+        duration: 1,
+        delay: 0.6,
+        scrollTrigger: {
+          trigger: ".titleIntroduction h2",
+          start: "top 80%",
+          toggleActions: "play reverse play reverse"
+        }
+      });
+    }
+
+    // Icons in iconWrapper
+    if ($$(".iconWrapper i").length) {
+      gsap.from(".iconWrapper i", {
+        opacity: 0,
+        y: -20,
+        scale: 0.5,
+        duration: 0.7,
+        stagger: 0.1,
+        delay: 0.8,
+        scrollTrigger: {
+          trigger: ".iconWrapper",
+          start: "top 90%",
+          toggleActions: "play reverse play reverse"
+        }
+      });
+
+      // Hover effects
       $$(".iconWrapper i").forEach(icon => {
         icon.addEventListener("mouseenter", () => gsap.to(icon, { scale: 1.3, duration: 0.3 }));
         icon.addEventListener("mouseleave", () => gsap.to(icon, { scale: 1, duration: 0.3 }));
       });
+    }
 
-      gsap.utils.toArray(".timeline-item, .experience-item").forEach(item => {
-        gsap.from(item, { scrollTrigger: { trigger: item, start: "top 80%" }, y: 50, opacity: 0, duration: 0.8 });
+    // Timeline & Experience items
+    gsap.utils.toArray(".timeline-item, .experience-item").forEach(item => {
+      gsap.from(item, {
+        y: 50,
+        opacity: 0,
+        duration: 0.8,
+        scrollTrigger: {
+          trigger: item,
+          start: "top 80%",
+          toggleActions: "play reverse play reverse"
+        }
       });
+    });
 
-      gsap.utils.toArray(".project-card").forEach(card => {
-        gsap.from(card, { scrollTrigger: { trigger: card, start: "top 90%" }, y: 40, opacity: 0, duration: 0.6 });
+    // Project cards
+    gsap.utils.toArray(".project-card").forEach(card => {
+      gsap.from(card, {
+        y: 40,
+        opacity: 0,
+        duration: 0.6,
+        scrollTrigger: {
+          trigger: card,
+          start: "top 90%",
+          toggleActions: "play reverse play reverse"
+        }
+      });
+    });
+
+    // Skills items (if any)
+    gsap.utils.toArray(".skill-item").forEach(item => {
+      gsap.from(item, {
+        opacity: 0,
+        y: 30,
+        duration: 0.7,
+        scrollTrigger: {
+          trigger: item,
+          start: "top 90%",
+          toggleActions: "play reverse play reverse"
+        }
+      });
+    });
+
+    // Footer
+    if ($("footer")) {
+      gsap.from("footer", {
+        opacity: 0,
+        y: 50,
+        duration: 0.8,
+        scrollTrigger: {
+          trigger: "footer",
+          start: "top 90%",
+          toggleActions: "play reverse play reverse"
+        }
       });
     }
-  } catch (e) {
-    // if gsap not present, silently continue
-    // console.warn("GSAP not available:", e);
   }
+} catch (e) {
+  console.warn("GSAP not available:", e);
+}
+
 
   // ------------------------------
   // PROJECT FILTER
@@ -233,22 +340,32 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // WhatsApp icon logic relative to header area (if header exists)
-    const header = document.querySelector(".HeaderContainer") || null;
-    if (header && whatsappIcon) {
-      const headerBottom = header.offsetTop + header.offsetHeight;
-      if (scrollTop < headerBottom) {
-        whatsappIcon.style.display = "none";
-      } else {
-        // hide when scrolled past 50% of the page
-        if (scrollPercent > 50) {
-          whatsappIcon.style.display = "none";
-        } else {
-          whatsappIcon.style.display = "flex";
-          whatsappIcon.style.opacity = "1";
-          whatsappIcon.style.pointerEvents = "auto";
-        }
-      }
-    }
+// WhatsApp icon: show normally, hide near footer
+const header = document.querySelector(".HeaderContainer") || null;
+if (header && whatsappIcon) {
+  const windowHeight = window.innerHeight;
+  const docHeight = document.documentElement.scrollHeight;
+  const distanceFromBottom = docHeight - (scrollTop + windowHeight);
+  const hideTrigger = docHeight * 0.05;
+
+  const headerBottom = header.offsetTop + header.offsetHeight;
+
+  // Always hide before header
+  if (scrollTop < headerBottom) {
+    whatsappIcon.style.display = "none";
+  }
+  // Hide when near footer
+  else if (distanceFromBottom <= hideTrigger) {
+    whatsappIcon.style.display = "none";
+  }
+  // Show normally
+  else {
+    whatsappIcon.style.display = "flex";
+    whatsappIcon.style.opacity = "1";
+    whatsappIcon.style.pointerEvents = "auto";
+  }
+}
+
 
     // Scroll Bar progress
     if (scrollBar) {
